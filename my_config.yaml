@@ -1,0 +1,29 @@
+---
+app_name: my-app
+backends:
+  - backendName: flights
+    threads: 100
+    otherOption: baz
+    actions:
+      - cancel
+      - refund
+    s2sTarget: flights
+    transport:
+      type: webhook
+      url: https://prod.flights.backend
+  - backendName: food
+    threads: 20
+    actions:
+      - book
+      - cancel
+      - eat
+      - cook
+    s2sTarget: food
+    transport:
+      type: webhook
+      url: http://my.food.backend
+
+# Some other settings
+someOtherSettings:
+  foo: bar
+  bas: 100
